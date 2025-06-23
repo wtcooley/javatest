@@ -11,7 +11,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
+
 steps:
+- script: docker --version
+  displayName: 'Check Docker version'
+  workingDirectory: '$(Build.SourcesDirectory)'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
