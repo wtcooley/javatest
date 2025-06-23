@@ -29,5 +29,5 @@ steps:
     publishLocation: 'Container'
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
