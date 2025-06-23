@@ -18,8 +18,8 @@ steps:
   displayName: 'Check Docker version'
   workingDirectory: '$(Build.SourcesDirectory)'
 
-- script: docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Your_password123' -e 'MSSQL_PID=Standard' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
-  displayName: 'Run SQL Server in Docker'
+#- script: docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Your_password123' -e 'MSSQL_PID=Standard' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+  #displayName: 'Run SQL Server in Docker'
 
 - task: Maven@3
   inputs:
@@ -30,6 +30,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
