@@ -21,7 +21,7 @@ steps:
 - script: docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Your_password123' -e 'MSSQL_PID=Standard' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
   displayName: 'Run SQL Server in Docker'
 
-- task: Maven@3
+- task: Maven@2
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
